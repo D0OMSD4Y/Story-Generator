@@ -2,7 +2,7 @@ Create a visual blueprint of a story. The map is titled "Once Upon A Time..." an
 Each point has a specific title that does not change and a body of text that does change according to which item from a list is randomly selected
  to fill that body. Each point should have a button the user can select to re-generate a random item to fill the body of that point, and there should 
 also be a button the user can select to re-generate the body of all 8 points at once. No two items should be repeated in any 8 currently generated points.
- The specific titles of each of the 8 points are as follows:
+The specific titles of each of the 8 points are as follows:
  
  1) The Protagonist Before The Story
  2) The Status Quo
@@ -13,7 +13,7 @@ also be a button the user can select to re-generate the body of all 8 points at 
  7) The Direction The Protagonist is Pushed
  8) The Apparent Goal
  
- The items that are selected from to fill the body of each point are as follows:
+The items that are selected from to fill the body of each point are cards and their contents are as follows:
 
 Card: 1
 Side: A
@@ -22,7 +22,7 @@ Title: Misfortune
 Description: Fortune frowns when it is most needed, dealing a crushing blow.
 Side: B
 Title: Fortune
-Description: Against all odds, the tides of fortune turn for the better."""
+Description: Against all odds, the tides of fortune turn for the better.
 
 Card: 2
 Side: A
@@ -31,7 +31,7 @@ Title: The Know-It-All
 Description: Someone offers advice and guidance, but their expertise may be questionable or their motives disingenuous.
 Side: B
 Title: The Consultant
-Description: Whether they are paid or just willing to share the benefits of their experience, this person can be looked to for solid guidance and advice."""
+Description: Whether they are paid or just willing to share the benefits of their experience, this person can be looked to for solid guidance and advice.
 
 Card: 3
 Side: A
@@ -40,7 +40,7 @@ Title: Death
 Description: Death by accident or natural causes. This might be an immediate death or current events may be shpaed by a death in the past.
 Side: B
 Title: Murder
-Description: Death by murder, suicide, or other unnatural causes.  Could possibly be a death that leaves important issues unresolved."""
+Description: Death by murder, suicide, or other unnatural causes.  Could possibly be a death that leaves important issues unresolved.
 
 Card:4
 Side: A
@@ -49,7 +49,7 @@ Title: Law
 Description: This can be the idea of law, the institution of the legal system, or the intervention of a law enforcement agency.
 Side: B
 Title: Crime
-Description: The negation or ignorance of law. Can represent a career criminal or that a crime has taken place. """
+Description: The negation or ignorance of law. Can represent a career criminal or that a crime has taken place.
 
 Card: 5
 Side: A
@@ -58,7 +58,7 @@ Title: Pride
 Description: The excessive belief in one's own worth and abilities has been called the sin from which all others arise. 
 Side: B
 Title: Humility
-Description: Remaining humble even in the face of accolades is the mark of a  strong character - or perhaps low self-esteem."""
+Description: Remaining humble even in the face of accolades is the mark of a  strong character - or perhaps low self-esteem.
 
 Card: 6
 Side: A
@@ -67,7 +67,7 @@ Title: Chastity
 Description: A refusal of sex or love is called for. Someone must resist temptation that could lead to undesirable consequences.
 Side: B
 Title: Lust
-Description: Unbridled carnal desire blinds one to reason and takes control of his or her actions."
+Description: Unbridled carnal desire blinds one to reason and takes control of his or her actions.
 
 Card: 7
 Side: A
@@ -76,7 +76,7 @@ Title: Belief
 Description: Whether religious faith or an untested scientific theory, one belives a fact to be true even though he or she has no tangible evidence.
 Side: B
 Title: Disbelief
-Description: No matter how the evidence is presented, the argument being made is counter to what one already believes, and he or she is unable to accept it as truth."""
+Description: No matter how the evidence is presented, the argument being made is counter to what one already believes, and he or she is unable to accept it as truth.
 
 Card: 8
 Side: A
@@ -85,7 +85,7 @@ Title: The Loser
 Description: With the complete lack of charisma or leadership skills, nobody would follow or place much faith in this person.
 Side: B
 Title: The Leader
-Description: A natural leader who uses charisma and sheer presence to influence the actions of others."""
+Description: A natural leader who uses charisma and sheer presence to influence the actions of others.
 
 Card: 9
 Side: A
@@ -94,7 +94,7 @@ Title: The Secret Admirer
 Description: This person keeps to the shadows, either too shy to publicly admit his or her adoration or because the attention may be unwelcome or innappropriate.
 Side: B
 Title: The Fan
-Description: This person deeply admires someone and seeks every chance to sing his or her praises."""
+Description: This person deeply admires someone and seeks every chance to sing his or her praises.
 
 Card: 10
 Side: A
@@ -103,7 +103,7 @@ Title: Virtue
 Description: Someone acts in accordance with that which is known to be right and true.
 Side: B
 Title: Vice
-Description: Even knowing it to be wrong, someone gives in to his or her baser nature, selfishly pursuing only the most prurient interests."""
+Description: Even knowing it to be wrong, someone gives in to his or her baser nature, selfishly pursuing only the most prurient interests.
 
 Card: 11
 Side: A
@@ -112,7 +112,7 @@ Title: Delusion
 Description: A lie to one's self, whether deliberate or involuntary. Someone may be attempting to fool his or her self with justifications and rationalizations, or by clinging to facts that are simply not true.
 Side: B
 Title: Deception
-Description: Not just the concealment of truth, this card represents a deliverate, calculated attempt to convince someone of something other than the truth."""
+Description: Not just the concealment of truth, this card represents a deliverate, calculated attempt to convince someone of something other than the truth.
 
 Card: 12
 Side: A
@@ -121,7 +121,7 @@ Title: The Officer
 Description: A career soldier with many years of training, combat experience, and a life in the military.
 Side: B
 Title: The Soldier
-Description: Someone is suddenly thrust into taking up arms, either willingly to protect the homeland or is unwillingly drafted into military service."""
+Description: Someone is suddenly thrust into taking up arms, either willingly to protect the homeland or is unwillingly drafted into military service.
 
 Card: 13
 Side: A
@@ -130,7 +130,7 @@ Title: Wrath
 Description: Vengeance can not be denied. The wronged can not rest  or even think of anything else until the offenders have paid dearly.
 Side: B
 Title: Forgiveness
-Description: As hard as it may be, it is time to let go of grudges and forgive those who may have caused harm."""
+Description: As hard as it may be, it is time to let go of grudges and forgive those who may have caused harm.
 
 Card: 14
 Side: A
@@ -139,7 +139,7 @@ Title: The Samaritan
 Description: The kindest of souls is found in this person, one who has dedicated his or her life to helping others.
 Side: B
 Title: The Grifter
-Description: When a stranger offers help, their motives may not be purely altruistic or sincere. Their assistance may come at a price."""
+Description: When a stranger offers help, their motives may not be purely altruistic or sincere. Their assistance may come at a price.
 
 Card: 15
 Side: A
@@ -148,7 +148,7 @@ Title: The Delimma
 Description: The choosing of a path is uncomfortable. Either none of the choices are attractive or one may be facing a situation where the wrong choice can be catastrophic.
 Side: B
 Title: The Crossroads
-Description: The path ahead can be chosen with some degree of confidence. At least one of the choices leads to a desired goal. The path which should be taken may be indicated or even obvious."""
+Description: The path ahead can be chosen with some degree of confidence. At least one of the choices leads to a desired goal. The path which should be taken may be indicated or even obvious.
 
 Card:16
 Side: A
@@ -157,7 +157,7 @@ Title: The Criminal
 Description: There are those who make their living simply taking what they want from others, either by force or by stealth.
 Side: B
 Title: The Outlaw
-Description: Not all crimes hurt the innocent. In the eys of the law, Robin Hood was a criminal, even though his cause was considered by many to be just."""
+Description: Not all crimes hurt the innocent. In the eys of the law, Robin Hood was a criminal, even though his cause was considered by many to be just.
 
 Card:17
 Side: A
@@ -166,7 +166,7 @@ Title: Despair
 Description: Once hope is crushed and all looks lost, the will to continue is almost impossible to rekindle.
 Side: B
 Title: Hope
-Description: Hope can keep the darkness at bay, even when the situation is grim. As long as there is the remote possibility of achieving the goal, the strength and courage to go on will be found."""
+Description: Hope can keep the darkness at bay, even when the situation is grim. As long as there is the remote possibility of achieving the goal, the strength and courage to go on will be found.
 
 Card:18
 Side: A
@@ -175,7 +175,7 @@ Title: Alliance
 Description: There is strength in numbers, and much comfort to be found in taking on a challenge in concert with one's most trusted comrades.
 Side: B
 Title: Solitude
-Description: The goal must be pursued alone. Either assistance is not available or it must be refused."""
+Description: The goal must be pursued alone. Either assistance is not available or it must be refused.
 
 Card:19
 Side: A
@@ -184,7 +184,7 @@ Title: The Investor
 Description: This person expects a substantial return for their contribution or support.
 Side: B
 Title: The Patron
-Description: The assistance that this person provides is material in nature and intended to help someone realize a shared vision."""
+Description: The assistance that this person provides is material in nature and intended to help someone realize a shared vision.
 
 Card:20
 Side: A
@@ -193,7 +193,7 @@ Title: Denial
 Description: Self-rejection; one refuses to recognize the person he or she sees reflected in the mirror.
 Side: B
 Title: The Mirror
-Description: Self-examination is the key; a deep understanding of core values and a clear grasp of one's strengths and weaknesses are crucial."""
+Description: Self-examination is the key; a deep understanding of core values and a clear grasp of one's strengths and weaknesses are crucial.
 
 Card:21
 Side: A
@@ -202,7 +202,7 @@ Title: Knowledge
 Description: Information, the wisdom to apply it well, and the power that comes with it.
 Side: B
 Title:  Ignorance
-Description: One is missing important or correct information, which may lead to vulnerability."""
+Description: One is missing important or correct information, which may lead to vulnerability.
 
 Card:22
 Side: A
@@ -211,7 +211,7 @@ Title: Balance
 Description: The elements in the world are in equilibrium. All forces are evenly matched or cancelled out by opposing forces.
 Side: B
 Title: Imbalance
-Description: Forces or influences are not in equilibrium. One element overpowers another, creating an unstable, chaotic, or even dangerous situation."""
+Description: Forces or influences are not in equilibrium. One element overpowers another, creating an unstable, chaotic, or even dangerous situation.
 
 Card:23
 Side: A 
@@ -220,7 +220,7 @@ Title: The Trickster
 Description: The Trickster is winning, successfully obfuscating the line between the real nd the unreal.
 Side: B
 Title: Clarity
-Description: Despite any efforts to cloud the issue, it is obvious what is real and what is not."""
+Description: Despite any efforts to cloud the issue, it is obvious what is real and what is not.
 
 Card:24
 Side: A
@@ -229,7 +229,7 @@ Title: Sloth
 Description: Effort comes hard for some people, even when being lazy may hurt their chances of getting what they want.
 Side: B
 Title: Industry
-Description: The task at hand will be difficult. Only an extremely hard-working person will earn the satisfaction and reward for a job well done."""
+Description: The task at hand will be difficult. Only an extremely hard-working person will earn the satisfaction and reward for a job well done.
 
 Card:25
 Side: A
@@ -238,7 +238,7 @@ Title: The Captive
 Description: The way forward is blocked. A captor, physical trap, or obstruction  prevents any progress or escape.
 Side: B
 Title: The Stranded
-Description: Either the time is not yet right to proceed or the skills, tools, or convictions needed to go forward must first be obtained."""
+Description: Either the time is not yet right to proceed or the skills, tools, or convictions needed to go forward must first be obtained.
 
 Card:26
 Side: A
@@ -247,7 +247,7 @@ Title: The Jilted
 Description: Love gone awry; unrequited or forbidden love, an illicit affair or the break up of a serious relationship.
 Side: B
 Title: The Lovers
-Description: True love, all consuming, at its most beautiful, becomes the primary focus, sometimes to the exclusion of all else."""
+Description: True love, all consuming, at its most beautiful, becomes the primary focus, sometimes to the exclusion of all else.
 
 Card:27
 Side: A
@@ -256,7 +256,7 @@ Title: Restraint
 Description: Something that one desires is offered, but it may be asking too much or seem ostentatious to acept it. Finding the strength to hold back is called for.
 Side: B
 Title: Gluttony
-Description: When one is unable to feel sated, he or she may over-indulge until the thing they crave does them serious harm."""
+Description: When one is unable to feel sated, he or she may over-indulge until the thing they crave does them serious harm.
 
 Card:28
 Side: A
@@ -265,7 +265,7 @@ Title: Compassion
 Description: Love and compassion are the focus. This may represent a specific instance of charity, affection, kindness, generosity, or mercy.
 Side: B
 Title: Cruelty
-Description: Someone is deliberately causing physical or mental suffering. Can represent an act of cruelty, the effect of such abuse, or a person with a sadistic nature."""
+Description: Someone is deliberately causing physical or mental suffering. Can represent an act of cruelty, the effect of such abuse, or a person with a sadistic nature.
 
 Card:29
 Side: A
@@ -274,7 +274,7 @@ Title: The Executioner
 Description: This killer is dispassionate or even friendly toward the intended victim, but feels quite strongly about the fee paid for completing the job.
 Side: B
 Title: The Assasin
-Description: Whether driven by vendetta or idealogy, this hunter will stop at nothing until blood has been spilled."""
+Description: Whether driven by vendetta or idealogy, this hunter will stop at nothing until blood has been spilled.
 
 Card:30
 Side: A
@@ -283,7 +283,7 @@ Title: Time
 Description: Time is of utmost importance, whether it is the ticking of a bomb, the passage of hours, years, centuries, or millennia.
 Side: B
 Title: Stasis
-Description: Time stands still or at least seems to. Could be a literal stoppage of time's passage, horrible boredom, or just a moment of such intense clarity that it feels like it lasts a lifetime."""
+Description: Time stands still or at least seems to. Could be a literal stoppage of time's passage, horrible boredom, or just a moment of such intense clarity that it feels like it lasts a lifetime.
 
 Card:31
 Side: A
@@ -292,7 +292,7 @@ Title: The Doctor
 Description: This person is a Western M.D., a Chinese herbalist, a tribal healer, or any other person whose gift is to heal the body.
 Side: B
 Title: The Counselor
-Description: Doctor, priest, or shaman, this person is able to heal emotional or psychological illnesses."""
+Description: Doctor, priest, or shaman, this person is able to heal emotional or psychological illnesses.
 
 Card:32
 Side: A
@@ -301,7 +301,7 @@ Title: The Goal
 Description: The goal is clearly in sight, either literally or within one's mind.
 Side: B
 Title: Adrift
-Description: Sight of the goal is lost, or the goal itself proves to be false or unworthy of pursuit."""
+Description: Sight of the goal is lost, or the goal itself proves to be false or unworthy of pursuit.
 
 Card:33
 Side: A
@@ -310,7 +310,7 @@ Title: Demolition
 Description: Though something importantis destroyed, the loss clears the way for something new.
 Side: B
 Title: Destruction
-Description: A catastrophic physical disaster may affect only a single individual or threaten the entirety of humanity."""
+Description: A catastrophic physical disaster may affect only a single individual or threaten the entirety of humanity.
 
 Card:34
 Side: A
@@ -319,7 +319,7 @@ Title: Wealth
 Description: A gain or increase in material wealth. Could manifest as a comfortable house, a well-paying job, or just cold hard cash.
 Side: B
 Title: Poverty
-Description: The lack of material wealth, and the trappings therof, whether suddenly lost or never possessed in the first place."""
+Description: The lack of material wealth, and the trappings therof, whether suddenly lost or never possessed in the first place.
 
 Card:35
 Side: A
@@ -328,7 +328,7 @@ Title: The Relative
 Description: Whether making soup for the ill or providing a shouder to cry on, nobody understands or cares like family.
 Side: B
 Title: The Meddler
-Description: Even the most genuinely concerned relative can be too eager to assist. This help may be unwelcome or driven by selfish motives."""
+Description: Even the most genuinely concerned relative can be too eager to assist. This help may be unwelcome or driven by selfish motives.
 
 Card:36
 Side: A
@@ -337,7 +337,7 @@ Title: Age
 Description: What has been lost in strength and agility has been replaced with wisdome and experience. One's skills and knowledge may head off problems, but if not , the way past them may be arduous.
 Side: B
 Title: Youth
-Description: Enthusiasm and energy push one forward, driven by a naive and simplistic worldview. Mistakes are more likely, but youthful resilience will help one survive them."""
+Description: Enthusiasm and energy push one forward, driven by a naive and simplistic worldview. Mistakes are more likely, but youthful resilience will help one survive them.
 
 Card:37
 Side: A
@@ -346,7 +346,7 @@ Title: Infamy
 Description: A person's name is known by all, but rather than praised, he or she is cursed, reviled, or feared.
 Side: B
 Title: Fame
-Description: A person's name is known and celebrated by all, or someone has a strong desire to have such fame."""
+Description: A person's name is known and celebrated by all, or someone has a strong desire to have such fame.
 
 Card:38
 Side: A
@@ -355,7 +355,7 @@ Title: Harmony
 Description: Whether taking the form of the physical environment or the general populace, the forces of the external world are united in providing support.
 Side: B
 Title: Adversity
-Description: Someone just can't get a break; the world or its people seem to be determined to provide nothing but resistance."""
+Description: Someone just can't get a break; the world or its people seem to be determined to provide nothing but resistance.
 
 Card:39
 Side: A
@@ -364,7 +364,7 @@ Title: The Burden
 Description: One's loyalty is severely tested by a friend who has done something wrong, or is asking for support in an undertaking almost certain to end in disaster.
 Side: B
 Title: The Friend
-Description: The buddy, the chum or the lover, this reliable person is family by choice, a relationship often even closer than blood."""
+Description: The buddy, the chum or the lover, this reliable person is family by choice, a relationship often even closer than blood.
 
 Card:40
 Side: A
@@ -373,7 +373,7 @@ Title: Innocence
 Description: There are many who believe that innocence is the original sin. One must know the difference between good and evil to make an informed choice, and that knowledge may be lacking.
 Side: B
 Title: Gnosis
-Description: A firm understanding of the difference between good and evil allows one to choose with certainty, but one must still make that choice."""
+Description: A firm understanding of the difference between good and evil allows one to choose with certainty, but one must still make that choice.
 
 Card:41
 Side: A
@@ -382,7 +382,7 @@ Title: The Wolf
 Description: Sometimes the Monster is cloaked ina perfectly mundane guise, easily mistaken for one of the sheep. That doesn't make it any less repulsive or dangerous.
 Side: B
 Title: The Monster
-Description: Raw, unthinking destruction, chaos made flesh. This is the bogeyman, the ripper, the source of all fears and nightmares."""
+Description: Raw, unthinking destruction, chaos made flesh. This is the bogeyman, the ripper, the source of all fears and nightmares.
 
 Card:42
 Side: A
@@ -391,7 +391,7 @@ Title: Charity
 Description: Whether one is rich or poor, sharing with those who have less can be its own reward.
 Side: B
 Title: Envy
-Description: If one feels the universe is rewarding others unfairly, the bitterness that sets in can be all-consuming."""
+Description: If one feels the universe is rewarding others unfairly, the bitterness that sets in can be all-consuming.
 
 Card:43
 Side: A
@@ -400,7 +400,7 @@ Title: Trust
 Description: A leap of faith must be made. Either someone is asking to be trusted, or one may be having difficulty finding the courage to trust one's self.
 Side: B
 Title: Betrayal
-Description: Trust has been misplaced. A traitor is revealed, or someone abandons the cause he or she had sworn allegiance to."""
+Description: Trust has been misplaced. A traitor is revealed, or someone abandons the cause he or she had sworn allegiance to.
 
 Card:44
 Side: A
@@ -409,7 +409,7 @@ Title: Injustice
 Description: Justince is thwarted. The greedy and corrupt win the day, threatening all that is good and right.
 Side: B
 Title: Justice
-Description: Justice prevails. The fair and the right triumph over their enemies."""
+Description: Justice prevails. The fair and the right triumph over their enemies.
 
 Card:45
 Side: A
@@ -418,7 +418,7 @@ Title: Fear
 Description: Terror controls one's actions, causing paralysis and blindness to reason.
 Side: B
 Title: Courage
-Description: Emotional fortitude is found. Even in the face of impending doom, the will to go on is within reach."""
+Description: Emotional fortitude is found. Even in the face of impending doom, the will to go on is within reach.
 
 Card:46
 Side: A
@@ -427,7 +427,7 @@ Title: Loss
 Description: Something ceases to exist. It is not just lost to the person who possessed it, it is no more.
 Side: B
 Title: Creation
-Description: Something is brought into existence where before there was nothing."""
+Description: Something is brought into existence where before there was nothing.
 
 Card:47
 Side: A
@@ -436,7 +436,7 @@ Title: Obliviousness
 Description: The truth is missed, refused, or ignored, no matter how dramatically it is revealed.
 Side: B
 Title: Epiphany
-Description: In an overwhelming instant, the true nature of the universe and one's place in it are revealed."""
+Description: In an overwhelming instant, the true nature of the universe and one's place in it are revealed.
 
 Card:48
 Side: A
@@ -445,7 +445,7 @@ Title: The Gamble
 Description: Putting things held dear on the line, hoping to profit from the bet. The prize seems worth risking the high price for losing.
 Side: B
 Title: Safety
-Description: Sticking to bets where the odds of winning are stacked in one's favor. Taken to an extreme, a person might never leave their house to avoid taking any risk."
+Description: Sticking to bets where the odds of winning are stacked in one's favor. Taken to an extreme, a person might never leave their house to avoid taking any risk.
 
 Card:49
 Side: A
@@ -454,7 +454,7 @@ Title: Addiction
 Description: Chronic substance abuse or emotional dependence blot out reason and dominate motivation, making someone dependent on something or someone.
 Side: B
 Title: Withdrawal
-Description: The thing one is addicted  to is suddenly taken away or is no longer available, causing pain and panic."
+Description: The thing one is addicted  to is suddenly taken away or is no longer available, causing pain and panic.
 
 Card:50
 Side: A 
@@ -463,7 +463,7 @@ Title: The Mentor
 Description: This person might be a professor, a professional who takes an apprentice, or even a martial arts sensei. His or her gift is helping others with growth or training in a specific skill or craft. 
 Side: B
 Title: The Master
-Description: Somone who has been in training for many years is finally acknowledged as a master and may be called upon to employ that skill in the service of a cause."
+Description: Somone who has been in training for many years is finally acknowledged as a master and may be called upon to employ that skill in the service of a cause.
 
 Card:51
 Side: A
@@ -472,7 +472,7 @@ Title: Confession
 Description: Even if the cost is great, the secret must be revealed. Either the emotional toll of keeping the secret is too high, or remaining silent will prevent the goal from being reached.
 Side: B
 Title: The Secret
-Description: The consequences of the secret being revewaled would be catastrophic. It must be kept at all costs."
+Description: The consequences of the secret being revewaled would be catastrophic. It must be kept at all costs.
 
 Card:52
 Side: A
@@ -481,7 +481,7 @@ Title: Chaos
 Description: Chaos prevails. Rationality and predictability give way to random or seemingly insane events.
 Side: B
 Title: Order
-Description: Order prevails. Even if things go poorly, they behave as expected."""
+Description: Order prevails. Even if things go poorly, they behave as expected.
 
 Card:53
 Side: A
@@ -490,7 +490,7 @@ Title: Sacred
 Description: This person, object, or situation is sanctified by God, pure and holy. Supernatural powers or protection may surround it or come from it.
 Side: B
 Title: Profane
-Description: Pure evil, a blight on mankind, God, and the Universe. Nothing but pain, loss, and damnation can come from this."""
+Description: Pure evil, a blight on mankind, God, and the Universe. Nothing but pain, loss, and damnation can come from this.
 
 Card:54
 Side: A
@@ -499,7 +499,7 @@ Title:  Madness
 Description: Clear thinking breaks down and gives way to hysteria. Can be indicative of either mental illness or damage from psychological trauma.
 Side: B
 Title: Sanity
-Description: Calm hearts go hand in hand with keen minds. Clarity of thought and understanding are paramount."""
+Description: Calm hearts go hand in hand with keen minds. Clarity of thought and understanding are paramount.
 
 Card:55
 Side: A
@@ -508,7 +508,7 @@ Title: Amnesia
 Description: The inability to remember. Someone may be literally struck with amnesia or just be unable to remember a single crucial fact.
 Side: B
 Title: Memory
-Description: An issue turns on the ability to remember something, or the memory itself triggers an important association. Could also indicate someone regaining their memory after a serious case of amnesia."""
+Description: An issue turns on the ability to remember something, or the memory itself triggers an important association. Could also indicate someone regaining their memory after a serious case of amnesia.
 
 Card:56
 Side: A
@@ -517,7 +517,7 @@ Title: War
 Description: Negotiations break down. No equitable solutions can be agreed upon. Conflict escalates to violent combat.
 Side: B
 Title: Peace
-Description: Conflict is resolved without violence. Diferences are settled with diplomacy. Mutually satisfying agreements are reached."""
+Description: Conflict is resolved without violence. Diferences are settled with diplomacy. Mutually satisfying agreements are reached.
 
 Card:57
 Side: A
@@ -526,7 +526,7 @@ Title: Corruption
 Description: Power is misused, or someone is corrupted by power.
 Side: B
 Title: Power
-Description: A source of enormous power can be tapped into and harnessed, though first it must be attained."""
+Description: A source of enormous power can be tapped into and harnessed, though first it must be attained.
 
 Card:58
 Side: A
@@ -535,7 +535,7 @@ Title: The Protagonist
 Description: The main character's destiny, welfare, interests, or fate are of utmost importance.
 Side: B
 Title: The Antihero
-Description: The Protagonist may be someone whose goals and values are noble and good, but whose methods for achieving them are questionable."""
+Description: The Protagonist may be someone whose goals and values are noble and good, but whose methods for achieving them are questionable.
 
 Card:59
 Side: A
@@ -544,7 +544,7 @@ Title: Rebirth
 Description: What was lost is suddenly regained. Health returns after being sick, injured, or even dead. Could also be a metaphorical rebirth, a rekindling of purpose, or escape from damnation.
 Side: B
 Title: Relapse
-Description: Forces or patterns that were thought to be left behind rise anew, stronger than ever."""
+Description: Forces or patterns that were thought to be left behind rise anew, stronger than ever.
 
 Card:60
 Side: A
@@ -553,7 +553,7 @@ Title: Strength
 Description: Though the task at hand is daunting, the strength to see it through, whatever the cost, is within reach.
 Side: B
 Title: Weakness
-Description: Either through physical weakness or a lack of conviction, failure is likely."""
+Description: Either through physical weakness or a lack of conviction, failure is likely.
 
 Card:61
 Side: A
@@ -562,7 +562,7 @@ Title: Desire
 Description: A fire burns inside, filling one with a deep passion to possess someone or something, even if he or she must surmount substantial obstacles to acquire it.
 Side: B
 Title: Aversion
-Description: Whether through a phobia or from genuine distaste, someone is strongly repulsed by something and may go to great lengths to avoid it."""
+Description: Whether through a phobia or from genuine distaste, someone is strongly repulsed by something and may go to great lengths to avoid it.
 
 Card:62
 Side: A
@@ -571,7 +571,7 @@ Title: Turmoil
 Description: Nothing is still or at rest, all is drowned out in noise and chaotic action. Even if things are going well, they are progressing frenetically.
 Side: B
 Title: Tranquility
-Description: The complete absence of conflict and strife. Even if things aren't good, they are at least peaceful and still. Often, this turns out to be the calm before the storm."""
+Description: The complete absence of conflict and strife. Even if things aren't good, they are at least peaceful and still. Often, this turns out to be the calm before the storm.
 
 Card:63
 Side: A
@@ -580,7 +580,7 @@ Title: Nescience
 Description: When intuition and deduction both fail, one is left with no inkling of what is really going on around them.
 Side: B
 Title: Intuition
-Description: Sometimes instimnct is more accurate than deduction. Listening to hunches and fellings from the subconscious mind is important and more likely to pay off."""
+Description: Sometimes instimnct is more accurate than deduction. Listening to hunches and fellings from the subconscious mind is important and more likely to pay off.
 
 Card:64
 Side: A
@@ -589,7 +589,7 @@ Title: Compulsion
 Description: Regardless of the rationality, one is gripped with an irresistible impulse to do something. The motivator could also be external coercion.
 Side: B
 Title: Obsession
-Description: A single thought crowds out all others. One is fixated on another person or thing to the point of mania."""
+Description: A single thought crowds out all others. One is fixated on another person or thing to the point of mania.
 
 Card:65
 Side: A
@@ -598,7 +598,7 @@ Title: Disguise
 Description: Someone has assumed a false identity, traveling incognito, lying about his or her credentials, or concealing an unsavory past.
 Side: B
 Title: Identity
-Description: Knowing who someone really is becomes of utmost importance."""
+Description: Knowing who someone really is becomes of utmost importance.
 
 Card:66
 Side: A
@@ -607,7 +607,7 @@ Title: The Outsider
 Description: Some people just don't belong. Whether it's a club, profession, tribe, or culture, this person is clearly not included or welcome.
 Side: B
 Title: The Outcast
-Description: Someone who had been previously admired by others is suddenly shunned and must come to terms with being cast out."""
+Description: Someone who had been previously admired by others is suddenly shunned and must come to terms with being cast out.
 
 Card:67
 Side: A
@@ -616,7 +616,7 @@ Title: Victory
 Description: Glory rains down as opposition is overcome and the goal is achieved.
 Side: B
 Title: Defeat
-Description: Failure to achieve the goal results in loss and despair."""
+Description: Failure to achieve the goal results in loss and despair.
 
 Card:68
 Side: A
@@ -625,16 +625,16 @@ Title: The Angel
 Description: The highest forces in the universe stand united in support of the situation and protect all involved from harm.
 Side: B
 Title: The Devil
-Description: The universe itself becomes the opponent, rising up to prevent the goal from being reached."""
+Description: The universe itself becomes the opponent, rising up to prevent the goal from being reached.
 
 Card:69
 Side: A
 Type: Emotion
 Title: The Prodigy
-Description: The ""golden child"" is loved and admired by all. It is felt that this person can do no wrong, whether it is true or not.
+Description: The "golden child" is loved and admired by all. It is felt that this person can do no wrong, whether it is true or not.
 Side: B
 Title: The Black Sheep
-Description: This person has always been held in suspicion or actively shunned by others for having a legendarily bad reputation, even if it isn't earned."""
+Description: This person has always been held in suspicion or actively shunned by others for having a legendarily bad reputation, even if it isn't earned.
 
 Card:70
 Side: A
@@ -643,7 +643,7 @@ Title: Red Tape
 Description: Someone becomes tangled in a web of bureaucracy, sttruggling not to be victimized by others or become mired in endless forms and procedures.
 Side: B
 Title: The Bureaucrat
-Description: As someone who accepts or even embraces bureaucracy, this person could be a powerful foe or ally in the political or financial arenas."""
+Description: As someone who accepts or even embraces bureaucracy, this person could be a powerful foe or ally in the political or financial arenas.
 
 Card:71
 Side: A
@@ -652,7 +652,7 @@ Title: The MacGuffin
 Description: The object believed to be valuable is actually worthless. It may be a forgery or misidentified. If it is the real thing, it has lost whatever qualities once made is so precious.
 Side: B
 Title: The Black Bird
-Description: A legendary object of incredible value or power that many would be willing to fight, kill, or die to possess."""
+Description: A legendary object of incredible value or power that many would be willing to fight, kill, or die to possess.
 
 Card:72
 Side: A
@@ -661,7 +661,7 @@ Title: The Antagonist
 Description: This card may represent the Antagonist literally or other external forces aligned against the good of the Protagonist.
 Side: B
 Title: Self Defeat
-Description: It is not external opposition that causes one to fail, it is his or her own weakness or other internal flaws."""
+Description: It is not external opposition that causes one to fail, it is his or her own weakness or other internal flaws.
 
 Card:73
 Side: A
@@ -670,7 +670,7 @@ Title: Contentment
 Description: One is satisfied with the level of wealth he or she has atained. While having more might be welcome, it isn't necessary or evven strongly desired.
 Side: B
 Title: Greed
-Description: For some people, the word enough has no meaning. Whether is is food, wealth or pleasure, if it is availabe they will take as much of it as possible, whether he or she has earned it or not."""
+Description: For some people, the word enough has no meaning. Whether is is food, wealth or pleasure, if it is availabe they will take as much of it as possible, whether he or she has earned it or not.
 
 Card:74
 Side: A
@@ -679,7 +679,7 @@ Title: The Hidden
 Description: Forces are reaching out from beyond the normal realm, attempting to intervene in mortal affairs for good or ill.
 Side: B
 Title: The Threshold
-Description: Someone is being drawn into other realms, beginning a voyage that largely takes place outside the normal world."""
+Description: Someone is being drawn into other realms, beginning a voyage that largely takes place outside the normal world.
 
 Card:75
 Side: A
@@ -688,7 +688,7 @@ Title: Health
 Description: The body is strong and free from disease. Can be a generally good constitution or a return to health after having been injured or sick.
 Side: B
 Title: Illness
-Description: The body falls prey to a disease or injury."""
+Description: The body falls prey to a disease or injury.
 
 Card:76
 Side: A
@@ -697,7 +697,7 @@ Title: Pain
 Description: Actions are driven purely by physcial or emotional pain; either to put an end to the suffering or to strike out at the source.
 Side: B
 Title: Pleasure
-Description: Whether as a goal or a reward for hard work, pleasure becomes the focus of attention."""
+Description: Whether as a goal or a reward for hard work, pleasure becomes the focus of attention.
 
 Card:77
 Side: A
@@ -706,7 +706,7 @@ Title: The Manipulator
 Description: Some do not need a gun to get others to do their bidding. This person's weapons are flattery, lies, guilt, blackmail, or bullying.
 Side: B
 Title: The Leech
-Description: An emotionally starved person who drains time and energy from others. His or her life is always a tragedy. No amount of support or assistance will ever be enough."""
+Description: An emotionally starved person who drains time and energy from others. His or her life is always a tragedy. No amount of support or assistance will ever be enough.
 
 Card:78
 Side: A
@@ -715,4 +715,6 @@ Title: Marriage
 Description: The institution of marriage, a proposal, or entrance into a permanent relationsip. Ther is no guarantee that it will be happy, but it will be solid and committed.
 Side: B
 Title: Infidelity
-Description: One of the partners in a marriage or other permanent relationship goes astray, taking their affection and attention to another."""
+Description: One of the partners in a marriage or other permanent relationship goes astray, taking their affection and attention to another.
+
+Each card should display both Side A and Side B at the same time. Users should have the option to highlight either Side A or Side B of the card, or not highlight either side at all.
