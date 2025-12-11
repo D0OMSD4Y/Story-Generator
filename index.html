@@ -40,6 +40,8 @@
     .global-controls {
       display: flex;
       justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
       margin-bottom: 1.5rem;
     }
 
@@ -68,6 +70,14 @@
       font-size: 1rem;
       padding: 0.75rem 1.5rem;
       background: #27ae60;
+    }
+
+    .global-controls .secondary-btn {
+      background: #3498db;
+    }
+
+    .global-controls .export-btn {
+      background: #9b59b6;
     }
 
     .story-points {
@@ -113,6 +123,23 @@
       padding: 0.4rem 0.8rem;
       font-size: 0.8rem;
       background: #3498db;
+    }
+
+    .point-actions {
+      display: flex;
+      gap: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    .lock-btn {
+      padding: 0.4rem 0.6rem;
+      font-size: 0.8rem;
+      background: #555;
+      min-width: auto;
+    }
+
+    .lock-btn.locked {
+      background: #e67e22;
     }
 
     .point-content {
@@ -167,6 +194,55 @@
         grid-template-columns: 1fr;
       }
     }
+
+    @media print {
+      body {
+        background: white;
+        color: black;
+      }
+
+      .app {
+        background: white;
+        box-shadow: none;
+      }
+
+      .global-controls {
+        display: none;
+      }
+
+      button {
+        display: none;
+      }
+
+      .point {
+        border: 2px solid #333;
+        break-inside: avoid;
+      }
+    }
+
+    .notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #27ae60;
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+      animation: slideIn 0.3s ease-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(400px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
   </style>
 </head>
 
@@ -177,6 +253,9 @@
   <div class="app">
     <div class="global-controls">
       <button onclick="rollAll()">✨ Generate Entire Story Blueprint</button>
+      <button class="secondary-btn" onclick="shareBlueprint()">🔗 Share Blueprint</button>
+      <button class="export-btn" onclick="exportAsImage()">📸 Export as Image</button>
+      <button class="export-btn" onclick="window.print()">🖨️ Print</button>
     </div>
 
     <div class="story-points" id="storyPoints">
@@ -291,6 +370,7 @@
     // RANDOMIZATION LOGIC
     // =========================
     let currentSelections = [];
+    let lockedPoints = new Set();
 
     function getRandomCardSide(excludeCardNums = []) {
       const availableCards = cards.filter(c => !excludeCardNums.includes(c.num));
@@ -318,13 +398,22 @@
     }
 
     function rollAll() {
-      currentSelections = [];
       const usedCardNums = [];
 
       for (let i = 0; i < 8; i++) {
-        const card = getRandomCardSide(usedCardNums);
-        currentSelections.push(card);
-        usedCardNums.push(card.cardNum);
+        if (lockedPoints.has(i)) {
+          // Keep locked card, but add it to used list
+          usedCardNums.push(currentSelections[i].cardNum);
+        } else {
+          // Generate new card for unlocked points
+          const card = getRandomCardSide(usedCardNums);
+          if (!currentSelections[i]) {
+            currentSelections.push(card);
+          } else {
+            currentSelections[i] = card;
+          }
+          usedCardNums.push(card.cardNum);
+        }
       }
 
       renderAllPoints();
@@ -351,6 +440,30 @@
       `;
     }
 
+    function toggleLock(index) {
+      if (lockedPoints.has(index)) {
+        lockedPoints.delete(index);
+      } else {
+        lockedPoints.add(index);
+      }
+      updateLockButton(index);
+    }
+
+    function updateLockButton(index) {
+      const lockBtn = document.getElementById(`lock-btn-${index}`);
+      if (!lockBtn) return;
+
+      if (lockedPoints.has(index)) {
+        lockBtn.textContent = '🔒';
+        lockBtn.classList.add('locked');
+        lockBtn.title = 'Unlock this card';
+      } else {
+        lockBtn.textContent = '🔓';
+        lockBtn.classList.remove('locked');
+        lockBtn.title = 'Lock this card';
+      }
+    }
+
     function renderAllPoints() {
       const container = document.getElementById('storyPoints');
       container.innerHTML = '';
@@ -360,11 +473,15 @@
         pointDiv.className = 'point';
         pointDiv.id = `point-${i}`;
 
+        const isLocked = lockedPoints.has(i);
         pointDiv.innerHTML = `
           <div class="point-header">
             <span class="point-number">${i + 1}</span>
             <div class="point-title">${title}</div>
-            <button class="point-button" onclick="rollSinglePoint(${i})">↻ Re-roll</button>
+            <div class="point-actions">
+              <button id="lock-btn-${i}" class="lock-btn ${isLocked ? 'locked' : ''}" onclick="toggleLock(${i})" title="${isLocked ? 'Unlock this card' : 'Lock this card'}">${isLocked ? '🔒' : '🔓'}</button>
+              <button class="point-button" onclick="rollSinglePoint(${i})">↻ Re-roll</button>
+            </div>
           </div>
           <div class="point-content"></div>
         `;
@@ -375,10 +492,127 @@
     }
 
     // =========================
+    // SHARE & EXPORT FEATURES
+    // =========================
+    function shareBlueprint() {
+      // Encode current selections into URL
+      const encoded = currentSelections.map(card => `${card.cardNum}${card.side}`).join('-');
+      const url = `${window.location.origin}${window.location.pathname}?blueprint=${encoded}`;
+
+      // Copy to clipboard
+      navigator.clipboard.writeText(url).then(() => {
+        showNotification('Blueprint link copied to clipboard!');
+      }).catch(() => {
+        // Fallback for older browsers
+        const tempInput = document.createElement('input');
+        tempInput.value = url;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+        showNotification('Blueprint link copied to clipboard!');
+      });
+    }
+
+    function loadBlueprintFromURL() {
+      const params = new URLSearchParams(window.location.search);
+      const blueprint = params.get('blueprint');
+
+      if (!blueprint) return false;
+
+      try {
+        const cardCodes = blueprint.split('-');
+        if (cardCodes.length !== 8) return false;
+
+        currentSelections = cardCodes.map(code => {
+          const cardNum = parseInt(code.slice(0, -1));
+          const side = code.slice(-1);
+          const card = cards.find(c => c.num === cardNum);
+
+          if (!card) throw new Error('Invalid card');
+
+          const sideKey = side === 'A' ? 'sideA' : 'sideB';
+          const cardData = card[sideKey];
+
+          return {
+            cardNum: card.num,
+            side: side,
+            type: cardData.type || card.sideA.type,
+            title: cardData.title,
+            description: cardData.desc
+          };
+        });
+
+        return true;
+      } catch (e) {
+        console.error('Failed to load blueprint from URL:', e);
+        return false;
+      }
+    }
+
+    function showNotification(message) {
+      const notification = document.createElement('div');
+      notification.className = 'notification';
+      notification.textContent = message;
+      document.body.appendChild(notification);
+
+      setTimeout(() => {
+        notification.remove();
+      }, 3000);
+    }
+
+    async function exportAsImage() {
+      showNotification('Preparing export... This may take a moment.');
+
+      // Use html2canvas library via CDN
+      if (!window.html2canvas) {
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js';
+        script.onload = () => performExport();
+        document.head.appendChild(script);
+      } else {
+        performExport();
+      }
+    }
+
+    async function performExport() {
+      const appElement = document.querySelector('.app');
+
+      try {
+        const canvas = await html2canvas(appElement, {
+          backgroundColor: '#1b1b1b',
+          scale: 2
+        });
+
+        // Convert to blob and download
+        canvas.toBlob((blob) => {
+          const url = URL.createObjectURL(blob);
+          const link = document.createElement('a');
+          link.download = `story-blueprint-${Date.now()}.png`;
+          link.href = url;
+          link.click();
+          URL.revokeObjectURL(url);
+          showNotification('Blueprint exported successfully!');
+        });
+      } catch (error) {
+        console.error('Export failed:', error);
+        showNotification('Export failed. Please try the Print option instead.');
+      }
+    }
+
+    // =========================
     // INITIALIZATION
     // =========================
     window.addEventListener('DOMContentLoaded', () => {
-      rollAll();
+      // Try to load from URL first
+      const loadedFromURL = loadBlueprintFromURL();
+
+      if (loadedFromURL) {
+        renderAllPoints();
+        showNotification('Blueprint loaded from shared link!');
+      } else {
+        rollAll();
+      }
     });
   </script>
 </body>
