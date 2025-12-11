@@ -1,0 +1,236 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Story Forge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 1.5rem;
+      background: #111;
+      color: #f5f5f5;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .tagline {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      opacity: 0.8;
+    }
+
+    .app {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #1b1b1b;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      background: #2f80ed;
+      color: #fff;
+      transition: transform 0.05s ease-out, box-shadow 0.05s ease-out;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    }
+
+    button:active {
+      transform: translateY(0);
+      box-shadow: none;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .card {
+      background: #111;
+      border-radius: 8px;
+      padding: 0.75rem 0.9rem;
+      border: 1px solid #333;
+      min-height: 110px;
+    }
+
+    .card-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      opacity: 0.7;
+      margin-bottom: 0.35rem;
+    }
+
+    .card-text {
+      font-size: 0.95rem;
+      line-height: 1.35;
+    }
+
+    .footer-note {
+      margin-top: 1.25rem;
+      font-size: 0.8rem;
+      opacity: 0.75;
+      border-top: 1px solid #333;
+      padding-top: 0.75rem;
+    }
+
+    .footer-note code {
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Story Forge</h1>
+  <p class="tagline">Click to “roll” random ingredients for a story.</p>
+
+  <div class="app">
+    <div class="controls">
+      <button onclick="rollAll()">Roll Everything</button>
+      <button onclick="roll('subject')">Roll Subject</button>
+      <button onclick="roll('statusQuo')">Roll Status Quo</button>
+      <button onclick="roll('spark')">Roll Inciting Event</button>
+      <button onclick="roll('conflict')">Roll Big Conflict</button>
+      <button onclick="roll('twist')">Roll Twist / Ending</button>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <div class="card-title">Subject / Protagonist</div>
+        <div id="subject" class="card-text">Click “Roll Everything” to start.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Status Quo</div>
+        <div id="statusQuo" class="card-text"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Inciting Event</div>
+        <div id="spark" class="card-text"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Big Conflict</div>
+        <div id="conflict" class="card-text"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Twist / Ending Vibe</div>
+        <div id="twist" class="card-text"></div>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      <strong>How to customize:</strong><br />
+      Open this file in any text editor and change the lists inside
+      <code>storyOptions</code> in the script below. Add, remove, or rewrite lines.
+      No other code needs to change.
+    </div>
+  </div>
+
+  <script>
+    // =========================
+    // STORY OPTIONS TO EDIT
+    // =========================
+    // Each list is used for one "card".
+    // To customize: just change the text inside the quotes,
+    // or add/remove lines. Keep the commas between items.
+
+    const storyOptions = {
+      subject: [
+        "A disgraced hero trying to win back their good name.",
+        "An ordinary person who suddenly becomes legendary.",
+        "A healer who secretly causes the sickness they cure.",
+        "A monster everyone fears, who only wants peace.",
+        "A brilliant but lonely kid whose ideas scare adults."
+      ],
+
+      statusQuo: [
+        "The world is on edge, peace barely holding and tempers ready to snap.",
+        "Life is calm and quiet, but everyone feels a storm coming.",
+        "The city worships wealth and fame above all else.",
+        "War just ended, leaving people exhausted, hopeful, and afraid it will return.",
+        "Magic is outlawed, but small acts of kindness keep slipping through the cracks."
+      ],
+
+      spark: [
+        "A powerful patron offers help—but clearly wants something huge in return.",
+        "A murder tears apart the one place everyone thought was safe.",
+        "A hidden truth about the protagonist is exposed to the whole community.",
+        "An unexpected alliance is offered by someone who was once an enemy.",
+        "A prophecy says someone will be reborn to fix what was broken—or ruin it further."
+      ],
+
+      conflict: [
+        "Open conflict erupts between those who want strict order and those who want wild freedom.",
+        "Corrupt leaders twist the law to keep their power, turning justice into a weapon.",
+        "An invisible enemy spreads despair, making people give up before they even try.",
+        "A chaotic force bends reality, making it hard to tell what is real or who to trust.",
+        "A close friend is tempted to betray the group for a chance at incredible power."
+      ],
+
+      twist: [
+        "The apparent villain was protecting everyone from something much worse.",
+        "The hero’s greatest strength turns out to be the cause of the disaster.",
+        "The goal everyone chased was a fake; the real prize was something they created together.",
+        "The world doesn’t end in victory or defeat, but in a fragile, uneasy balance.",
+        "What seemed like a relapse or failure becomes the start of a completely new life."
+      ]
+    };
+
+    // =========================
+    // SIMPLE “ROLL” LOGIC
+    // =========================
+
+    function randomFrom(list) {
+      const i = Math.floor(Math.random() * list.length);
+      return list[i];
+    }
+
+    function roll(categoryKey) {
+      const list = storyOptions[categoryKey];
+      if (!list) return;
+      const text = randomFrom(list);
+      const el = document.getElementById(categoryKey);
+      if (el) el.textContent = text;
+    }
+
+    function rollAll() {
+      roll("subject");
+      roll("statusQuo");
+      roll("spark");
+      roll("conflict");
+      roll("twist");
+    }
+
+    // Roll once on page load so it isn't blank.
+    rollAll();
+  </script>
+</body>
+</html>
