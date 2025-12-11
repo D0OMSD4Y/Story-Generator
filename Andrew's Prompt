@@ -1,8 +1,21 @@
-Create a visual blueprint of a story. The map is titled "Once Upon A Time..." and is made of 8 points.
+Create a main menu titled "Story Forge" with the option to select any one of the following available options called "Spreads":
+1) "Once Upon A Time..."
+2) "Character Backstory"
+3) "Character Quick Pick (good for minor characters)"
+4) "The Hero's Journey"
+5) "The Train Crash (a head-on collision between two characters)"
+6) "Film Noir"
+7) "The Love Story"
+8) "The Action Movie"
+9) "The Crossroads (working a moral dilemma)"
+
+The content of each spread, when selected, should be a visual blueprint of a story made up of several points. Each spread consists of points.
+
 Each point has a specific title that does not change and a body of text that does change according to which item from a list is randomly selected
  to fill that body. Each point should have a button the user can select to re-generate a random item to fill the body of that point, and there should 
-also be a button the user can select to re-generate the body of all 8 points at once. No two items should be repeated in any 8 currently generated points.
-The specific titles of each of the 8 points are as follows:
+also be a button on each spread that the user can select to re-generate the body of all points in a given spread at once. No two items should be repeated in any currently generated points.
+
+The Spread titled "Once Upon A Time..." consists of 8 points. They are titled as follows:
  
  1) The Protagonist Before The Story
  2) The Status Quo
@@ -12,8 +25,115 @@ The specific titles of each of the 8 points are as follows:
  6) What Propels The Protagonist Into Action
  7) The Direction The Protagonist is Pushed
  8) The Apparent Goal
- 
-The items that are selected from to fill the body of each point are cards and their contents are as follows:
+
+The spread titled "Character Backstory" consists of 15 points. They are titled as follows:
+1) "The Character's Mother"
+2) "The Character's Father"
+3) "The Strength Of The Relationship"
+4) "The Problems Between Them"
+5) "The Circumstance Of The Character's Birth"
+6) "Complications of Birth, If Any"
+7) "The Universe's Influence On Their Nature"
+8) "Early Strengths"
+9) "Early Weaknesses"
+10) "Education"
+11) "Belief Foundation"
+12) "Life Experience"
+13) "A Shaping Experience In Recent Times"
+14) "An Experience That Left Scars"
+15) "The State Of The Character At The Beginning Of The Story"
+
+The spread titled "Character Quick Pick (good for minor characters)" consists of 7 points. They are titled as follows:
+1) "The Character's Base Nature"
+2) "The Influence of the Universe"
+3) "Their "Achilles' heel""
+4) "The Influence of Family and/or Friends"
+5) "The Character's Driving Passion"
+6) "The Character's Destiny"
+7) "What Stands Between Them And Their Destiny"
+
+The spread titled "The Hero's Journey" consists of 22 points. They are titled as follows:
+1) "The Unchanged World"
+2) "The Call To Adventure"
+3) "Refusal Of The Call"
+4) "Supernatural Aid"
+5) "The Threshold"
+6) "The Guardian"
+7) "The Guide"
+8) "The Initiation"
+9) "The Road Of Trials"
+10) "Temptation Away From The True Path"
+11) "The Abyss"
+12) "Apotheosis"
+13) "Meeting With The Goddess"
+14) "Atonement With The Father"
+15) "The Ultimate Boon"
+16) "The Price Of The Boon"
+17) "The Refusal Of The Return"
+18) "The Magic Flight"
+19) "Rescue From Without"
+20) "Return Across The Threshold"
+21) "The Master Of Two Worlds"
+22) "The Freedom To Live"
+
+The spread titled "The Train Crash (a head-on collision between two characters)" consists of 8 points. They are titled as follows:
+1) "Character-A Before The Conflict"
+2) "Character-B Before The Conflict"
+3) "What Draws A Into Conflict With B"
+4) "What Draws B Into Conflict With A"
+5) "What A Brings To The Conflict"
+6) "What B Brings To The Conflict"
+7) "The Nature Of The Battle"
+8) "The Outcome"
+
+The spread titled "Film Noir" consists of 8 points. They are titled as follows:
+1) "The Protagonist"
+2) "What Is Wrong With Them"
+3) "What They Want"
+4) "Why They Can't Have It"
+5) "Who Tempts Them Into Going For It Anyway"
+6) "The Double Cross"
+7) "The Cruel Twist Of Fate"
+8) "The Tragic Outcome"
+
+The spread titled "The Love Story" consists of 9 points. They are titled as follows:
+1) "Lover-A"
+2) "Lover-B"
+3) "How They First Meet"
+4) "What Prevents Them From Being Together Immediately"
+5) "The Influence Of The Universe"
+6) "The Influence Of Family and/or Friends"
+7) "The Nature Of The Pursuit"
+8) "The Obstacle To Be Overcome"
+9) "The Outcome"
+
+The spread titled "The Action Movie" consists of 15 points. They are titled as follows:
+1) "The World At Rest"
+2) "What Is Threatened"
+3) "Who Is Threatening It (The Villain)"
+4) "Why They Are Doing It"
+5) "The Hero"
+6) "What Makes The Hero Special"
+7) "The Hero's Weakness"
+8) "The Hero's First Move"
+9) "The Villain Reacts"
+10) "The Villain Strikes At The Hero"
+11) "The Hero Counters"
+12) "The Climactic Battle"
+13) "The Outcome"
+14) "The Hero's Fate"
+15) "The Villain's Fate"
+
+The spread titled "The Crossroads (working a moral dilemma)" consists of 6 points. They are titled as follows:
+1) "The Nature Of The Decision To Be Made"
+2) "What Is Making The Decision Difficult"
+3) "The Consequences Of Avoiding The Decision"
+4) "The Nature Of The Obvious Path"
+5) "The Consequences Of Taking The Selfish Path"
+6) "The Potential Reward For Taking The Hard Road"
+
+
+The items that are selected from to fill the body of each point in a given spread are cards and their contents are as follows:
 
 Card: 1
 Side: A
