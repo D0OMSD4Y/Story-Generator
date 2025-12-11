@@ -1,9 +1,8 @@
- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Story Forge</title>
+  <title>Once Upon A Time...</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <style>
@@ -18,6 +17,8 @@
     h1 {
       text-align: center;
       margin-bottom: 0.5rem;
+      font-size: 2.5rem;
+      font-style: italic;
     }
 
     .tagline {
@@ -28,7 +29,7 @@
     }
 
     .app {
-      max-width: 900px;
+      max-width: 1200px;
       margin: 0 auto;
       background: #1b1b1b;
       border-radius: 10px;
@@ -36,17 +37,16 @@
       box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
     }
 
-    .controls {
+    .global-controls {
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
+      justify-content: center;
+      margin-bottom: 1.5rem;
     }
 
     button {
       border: none;
       padding: 0.6rem 1rem;
-      border-radius: 999px;
+      border-radius: 6px;
       cursor: pointer;
       font-size: 0.9rem;
       background: #2f80ed;
@@ -64,173 +64,322 @@
       box-shadow: none;
     }
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 0.75rem;
+    .global-controls button {
+      font-size: 1rem;
+      padding: 0.75rem 1.5rem;
+      background: #27ae60;
     }
 
-    .card {
+    .story-points {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+
+    .point {
       background: #111;
       border-radius: 8px;
-      padding: 0.75rem 0.9rem;
+      padding: 1rem;
       border: 1px solid #333;
-      min-height: 110px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .point-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.75rem;
+    }
+
+    .point-number {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #2f80ed;
+      margin-right: 0.5rem;
+    }
+
+    .point-title {
+      flex: 1;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      line-height: 1.3;
+    }
+
+    .point-button {
+      flex-shrink: 0;
+      padding: 0.4rem 0.8rem;
+      font-size: 0.8rem;
+      background: #3498db;
+    }
+
+    .point-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .card-info {
+      padding: 0.75rem;
+      background: #1a1a1a;
+      border-radius: 6px;
+      border-left: 3px solid #2f80ed;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.4rem;
     }
 
     .card-title {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      opacity: 0.7;
-      margin-bottom: 0.35rem;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #3498db;
     }
 
-    .card-text {
-      font-size: 0.95rem;
-      line-height: 1.35;
+    .card-meta {
+      font-size: 0.75rem;
+      opacity: 0.6;
+    }
+
+    .card-description {
+      font-size: 0.9rem;
+      line-height: 1.4;
+      opacity: 0.9;
     }
 
     .footer-note {
-      margin-top: 1.25rem;
+      margin-top: 1.5rem;
       font-size: 0.8rem;
-      opacity: 0.75;
+      opacity: 0.6;
       border-top: 1px solid #333;
       padding-top: 0.75rem;
+      text-align: center;
     }
 
-    .footer-note code {
-      font-size: 0.8rem;
+    @media (max-width: 768px) {
+      .story-points {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 
 <body>
-  <h1>Story Forge</h1>
-  <p class="tagline">Click to “roll” random ingredients for a story.</p>
+  <h1>Once Upon A Time...</h1>
+  <p class="tagline">Generate a visual blueprint for your story using random tarot-style cards</p>
 
   <div class="app">
-    <div class="controls">
-      <button onclick="rollAll()">Roll Everything</button>
-      <button onclick="roll('subject')">Roll Subject</button>
-      <button onclick="roll('statusQuo')">Roll Status Quo</button>
-      <button onclick="roll('spark')">Roll Inciting Event</button>
-      <button onclick="roll('conflict')">Roll Big Conflict</button>
-      <button onclick="roll('twist')">Roll Twist / Ending</button>
+    <div class="global-controls">
+      <button onclick="rollAll()">✨ Generate Entire Story Blueprint</button>
     </div>
 
-    <div class="cards">
-      <div class="card">
-        <div class="card-title">Subject / Protagonist</div>
-        <div id="subject" class="card-text">Click “Roll Everything” to start.</div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Status Quo</div>
-        <div id="statusQuo" class="card-text"></div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Inciting Event</div>
-        <div id="spark" class="card-text"></div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Big Conflict</div>
-        <div id="conflict" class="card-text"></div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">Twist / Ending Vibe</div>
-        <div id="twist" class="card-text"></div>
-      </div>
+    <div class="story-points" id="storyPoints">
+      <!-- Story points will be generated here by JavaScript -->
     </div>
 
     <div class="footer-note">
-      <strong>How to customize:</strong><br />
-      Open this file in any text editor and change the lists inside
-      <code>storyOptions</code> in the script below. Add, remove, or rewrite lines.
-      No other code needs to change.
+      Based on the Story Engine system • 78 unique cards • 8 story points
     </div>
   </div>
 
   <script>
     // =========================
-    // STORY OPTIONS TO EDIT
+    // THE 78 TAROT CARDS
     // =========================
-    // Each list is used for one "card".
-    // To customize: just change the text inside the quotes,
-    // or add/remove lines. Keep the commas between items.
-
-    const storyOptions = {
-      subject: [
-        "A disgraced hero trying to win back their good name.",
-        "An ordinary person who suddenly becomes legendary.",
-        "A healer who secretly causes the sickness they cure.",
-        "A monster everyone fears, who only wants peace.",
-        "A brilliant but lonely kid whose ideas scare adults."
-      ],
-
-      statusQuo: [
-        "The world is on edge, peace barely holding and tempers ready to snap.",
-        "Life is calm and quiet, but everyone feels a storm coming.",
-        "The city worships wealth and fame above all else.",
-        "War just ended, leaving people exhausted, hopeful, and afraid it will return.",
-        "Magic is outlawed, but small acts of kindness keep slipping through the cracks."
-      ],
-
-      spark: [
-        "A powerful patron offers help—but clearly wants something huge in return.",
-        "A murder tears apart the one place everyone thought was safe.",
-        "A hidden truth about the protagonist is exposed to the whole community.",
-        "An unexpected alliance is offered by someone who was once an enemy.",
-        "A prophecy says someone will be reborn to fix what was broken—or ruin it further."
-      ],
-
-      conflict: [
-        "Open conflict erupts between those who want strict order and those who want wild freedom.",
-        "Corrupt leaders twist the law to keep their power, turning justice into a weapon.",
-        "An invisible enemy spreads despair, making people give up before they even try.",
-        "A chaotic force bends reality, making it hard to tell what is real or who to trust.",
-        "A close friend is tempted to betray the group for a chance at incredible power."
-      ],
-
-      twist: [
-        "The apparent villain was protecting everyone from something much worse.",
-        "The hero’s greatest strength turns out to be the cause of the disaster.",
-        "The goal everyone chased was a fake; the real prize was something they created together.",
-        "The world doesn’t end in victory or defeat, but in a fragile, uneasy balance.",
-        "What seemed like a relapse or failure becomes the start of a completely new life."
-      ]
-    };
+    const cards = [
+      {num: 1, sideA: {type: "Destiny", title: "Misfortune", desc: "Fortune frowns when it is most needed, dealing a crushing blow."}, sideB: {title: "Fortune", desc: "Against all odds, the tides of fortune turn for the better."}},
+      {num: 2, sideA: {type: "Wealth", title: "The Know-It-All", desc: "Someone offers advice and guidance, but their expertise may be questionable or their motives disingenuous."}, sideB: {title: "The Consultant", desc: "Whether they are paid or just willing to share the benefits of their experience, this person can be looked to for solid guidance and advice."}},
+      {num: 3, sideA: {type: "Destiny", title: "Death", desc: "Death by accident or natural causes. This might be an immediate death or current events may be shaped by a death in the past."}, sideB: {title: "Murder", desc: "Death by murder, suicide, or other unnatural causes. Could possibly be a death that leaves important issues unresolved."}},
+      {num: 4, sideA: {type: "Will", title: "Law", desc: "This can be the idea of law, the institution of the legal system, or the intervention of a law enforcement agency."}, sideB: {title: "Crime", desc: "The negation or ignorance of law. Can represent a career criminal or that a crime has taken place."}},
+      {num: 5, sideA: {type: "Emotion", title: "Pride", desc: "The excessive belief in one's own worth and abilities has been called the sin from which all others arise."}, sideB: {title: "Humility", desc: "Remaining humble even in the face of accolades is the mark of a strong character - or perhaps low self-esteem."}},
+      {num: 6, sideA: {type: "Emotion", title: "Chastity", desc: "A refusal of sex or love is called for. Someone must resist temptation that could lead to undesirable consequences."}, sideB: {title: "Lust", desc: "Unbridled carnal desire blinds one to reason and takes control of his or her actions."}},
+      {num: 7, sideA: {type: "Will", title: "Belief", desc: "Whether religious faith or an untested scientific theory, one believes a fact to be true even though he or she has no tangible evidence."}, sideB: {title: "Disbelief", desc: "No matter how the evidence is presented, the argument being made is counter to what one already believes, and he or she is unable to accept it as truth."}},
+      {num: 8, sideA: {type: "Identity", title: "The Loser", desc: "With the complete lack of charisma or leadership skills, nobody would follow or place much faith in this person."}, sideB: {title: "The Leader", desc: "A natural leader who uses charisma and sheer presence to influence the actions of others."}},
+      {num: 9, sideA: {type: "Identity", title: "The Secret Admirer", desc: "This person keeps to the shadows, either too shy to publicly admit his or her adoration or because the attention may be unwelcome or inappropriate."}, sideB: {title: "The Fan", desc: "This person deeply admires someone and seeks every chance to sing his or her praises."}},
+      {num: 10, sideA: {type: "Identity", title: "Virtue", desc: "Someone acts in accordance with that which is known to be right and true."}, sideB: {title: "Vice", desc: "Even knowing it to be wrong, someone gives in to his or her baser nature, selfishly pursuing only the most prurient interests."}},
+      {num: 11, sideA: {type: "Will", title: "Delusion", desc: "A lie to one's self, whether deliberate or involuntary. Someone may be attempting to fool his or her self with justifications and rationalizations, or by clinging to facts that are simply not true."}, sideB: {title: "Deception", desc: "Not just the concealment of truth, this card represents a deliberate, calculated attempt to convince someone of something other than the truth."}},
+      {num: 12, sideA: {type: "Will", title: "The Officer", desc: "A career soldier with many years of training, combat experience, and a life in the military."}, sideB: {title: "The Soldier", desc: "Someone is suddenly thrust into taking up arms, either willingly to protect the homeland or is unwillingly drafted into military service."}},
+      {num: 13, sideA: {type: "Emotion", title: "Wrath", desc: "Vengeance can not be denied. The wronged can not rest or even think of anything else until the offenders have paid dearly."}, sideB: {title: "Forgiveness", desc: "As hard as it may be, it is time to let go of grudges and forgive those who may have caused harm."}},
+      {num: 14, sideA: {type: "Emotion", title: "The Samaritan", desc: "The kindest of souls is found in this person, one who has dedicated his or her life to helping others."}, sideB: {title: "The Grifter", desc: "When a stranger offers help, their motives may not be purely altruistic or sincere. Their assistance may come at a price."}},
+      {num: 15, sideA: {type: "Destiny", title: "The Dilemma", desc: "The choosing of a path is uncomfortable. Either none of the choices are attractive or one may be facing a situation where the wrong choice can be catastrophic."}, sideB: {title: "The Crossroads", desc: "The path ahead can be chosen with some degree of confidence. At least one of the choices leads to a desired goal. The path which should be taken may be indicated or even obvious."}},
+      {num: 16, sideA: {type: "Wealth", title: "The Criminal", desc: "There are those who make their living simply taking what they want from others, either by force or by stealth."}, sideB: {title: "The Outlaw", desc: "Not all crimes hurt the innocent. In the eyes of the law, Robin Hood was a criminal, even though his cause was considered by many to be just."}},
+      {num: 17, sideA: {type: "Emotion", title: "Despair", desc: "Once hope is crushed and all looks lost, the will to continue is almost impossible to rekindle."}, sideB: {title: "Hope", desc: "Hope can keep the darkness at bay, even when the situation is grim. As long as there is the remote possibility of achieving the goal, the strength and courage to go on will be found."}},
+      {num: 18, sideA: {type: "Destiny", title: "Alliance", desc: "There is strength in numbers, and much comfort to be found in taking on a challenge in concert with one's most trusted comrades."}, sideB: {title: "Solitude", desc: "The goal must be pursued alone. Either assistance is not available or it must be refused."}},
+      {num: 19, sideA: {type: "Wealth", title: "The Investor", desc: "This person expects a substantial return for their contribution or support."}, sideB: {title: "The Patron", desc: "The assistance that this person provides is material in nature and intended to help someone realize a shared vision."}},
+      {num: 20, sideA: {type: "Identity", title: "Denial", desc: "Self-rejection; one refuses to recognize the person he or she sees reflected in the mirror."}, sideB: {title: "The Mirror", desc: "Self-examination is the key; a deep understanding of core values and a clear grasp of one's strengths and weaknesses are crucial."}},
+      {num: 21, sideA: {type: "Will", title: "Knowledge", desc: "Information, the wisdom to apply it well, and the power that comes with it."}, sideB: {title: "Ignorance", desc: "One is missing important or correct information, which may lead to vulnerability."}},
+      {num: 22, sideA: {type: "Destiny", title: "Balance", desc: "The elements in the world are in equilibrium. All forces are evenly matched or cancelled out by opposing forces."}, sideB: {title: "Imbalance", desc: "Forces or influences are not in equilibrium. One element overpowers another, creating an unstable, chaotic, or even dangerous situation."}},
+      {num: 23, sideA: {type: "Destiny", title: "The Trickster", desc: "The Trickster is winning, successfully obfuscating the line between the real and the unreal."}, sideB: {title: "Clarity", desc: "Despite any efforts to cloud the issue, it is obvious what is real and what is not."}},
+      {num: 24, sideA: {type: "Wealth", title: "Sloth", desc: "Effort comes hard for some people, even when being lazy may hurt their chances of getting what they want."}, sideB: {title: "Industry", desc: "The task at hand will be difficult. Only an extremely hard-working person will earn the satisfaction and reward for a job well done."}},
+      {num: 25, sideA: {type: "Destiny", title: "The Captive", desc: "The way forward is blocked. A captor, physical trap, or obstruction prevents any progress or escape."}, sideB: {title: "The Stranded", desc: "Either the time is not yet right to proceed or the skills, tools, or convictions needed to go forward must first be obtained."}},
+      {num: 26, sideA: {type: "Destiny", title: "The Jilted", desc: "Love gone awry; unrequited or forbidden love, an illicit affair or the break up of a serious relationship."}, sideB: {title: "The Lovers", desc: "True love, all consuming, at its most beautiful, becomes the primary focus, sometimes to the exclusion of all else."}},
+      {num: 27, sideA: {type: "Wealth", title: "Restraint", desc: "Something that one desires is offered, but it may be asking too much or seem ostentatious to accept it. Finding the strength to hold back is called for."}, sideB: {title: "Gluttony", desc: "When one is unable to feel sated, he or she may over-indulge until the thing they crave does them serious harm."}},
+      {num: 28, sideA: {type: "Emotion", title: "Compassion", desc: "Love and compassion are the focus. This may represent a specific instance of charity, affection, kindness, generosity, or mercy."}, sideB: {title: "Cruelty", desc: "Someone is deliberately causing physical or mental suffering. Can represent an act of cruelty, the effect of such abuse, or a person with a sadistic nature."}},
+      {num: 29, sideA: {type: "Identity", title: "The Executioner", desc: "This killer is dispassionate or even friendly toward the intended victim, but feels quite strongly about the fee paid for completing the job."}, sideB: {title: "The Assassin", desc: "Whether driven by vendetta or ideology, this hunter will stop at nothing until blood has been spilled."}},
+      {num: 30, sideA: {type: "Wealth", title: "Time", desc: "Time is of utmost importance, whether it is the ticking of a bomb, the passage of hours, years, centuries, or millennia."}, sideB: {title: "Stasis", desc: "Time stands still or at least seems to. Could be a literal stoppage of time's passage, horrible boredom, or just a moment of such intense clarity that it feels like it lasts a lifetime."}},
+      {num: 31, sideA: {type: "Identity", title: "The Doctor", desc: "This person is a Western M.D., a Chinese herbalist, a tribal healer, or any other person whose gift is to heal the body."}, sideB: {title: "The Counselor", desc: "Doctor, priest, or shaman, this person is able to heal emotional or psychological illnesses."}},
+      {num: 32, sideA: {type: "Destiny", title: "The Goal", desc: "The goal is clearly in sight, either literally or within one's mind."}, sideB: {title: "Adrift", desc: "Sight of the goal is lost, or the goal itself proves to be false or unworthy of pursuit."}},
+      {num: 33, sideA: {type: "Destiny", title: "Demolition", desc: "Though something important is destroyed, the loss clears the way for something new."}, sideB: {title: "Destruction", desc: "A catastrophic physical disaster may affect only a single individual or threaten the entirety of humanity."}},
+      {num: 34, sideA: {type: "Wealth", title: "Wealth", desc: "A gain or increase in material wealth. Could manifest as a comfortable house, a well-paying job, or just cold hard cash."}, sideB: {title: "Poverty", desc: "The lack of material wealth, and the trappings thereof, whether suddenly lost or never possessed in the first place."}},
+      {num: 35, sideA: {type: "Emotion", title: "The Relative", desc: "Whether making soup for the ill or providing a shoulder to cry on, nobody understands or cares like family."}, sideB: {title: "The Meddler", desc: "Even the most genuinely concerned relative can be too eager to assist. This help may be unwelcome or driven by selfish motives."}},
+      {num: 36, sideA: {type: "Identity", title: "Age", desc: "What has been lost in strength and agility has been replaced with wisdom and experience. One's skills and knowledge may head off problems, but if not, the way past them may be arduous."}, sideB: {title: "Youth", desc: "Enthusiasm and energy push one forward, driven by a naive and simplistic worldview. Mistakes are more likely, but youthful resilience will help one survive them."}},
+      {num: 37, sideA: {type: "Identity", title: "Infamy", desc: "A person's name is known by all, but rather than praised, he or she is cursed, reviled, or feared."}, sideB: {title: "Fame", desc: "A person's name is known and celebrated by all, or someone has a strong desire to have such fame."}},
+      {num: 38, sideA: {type: "Destiny", title: "Harmony", desc: "Whether taking the form of the physical environment or the general populace, the forces of the external world are united in providing support."}, sideB: {title: "Adversity", desc: "Someone just can't get a break; the world or its people seem to be determined to provide nothing but resistance."}},
+      {num: 39, sideA: {type: "Will", title: "The Burden", desc: "One's loyalty is severely tested by a friend who has done something wrong, or is asking for support in an undertaking almost certain to end in disaster."}, sideB: {title: "The Friend", desc: "The buddy, the chum or the lover, this reliable person is family by choice, a relationship often even closer than blood."}},
+      {num: 40, sideA: {type: "Will", title: "Innocence", desc: "There are many who believe that innocence is the original sin. One must know the difference between good and evil to make an informed choice, and that knowledge may be lacking."}, sideB: {title: "Gnosis", desc: "A firm understanding of the difference between good and evil allows one to choose with certainty, but one must still make that choice."}},
+      {num: 41, sideA: {type: "Will", title: "The Wolf", desc: "Sometimes the Monster is cloaked in a perfectly mundane guise, easily mistaken for one of the sheep. That doesn't make it any less repulsive or dangerous."}, sideB: {title: "The Monster", desc: "Raw, unthinking destruction, chaos made flesh. This is the bogeyman, the ripper, the source of all fears and nightmares."}},
+      {num: 42, sideA: {type: "Wealth", title: "Charity", desc: "Whether one is rich or poor, sharing with those who have less can be its own reward."}, sideB: {title: "Envy", desc: "If one feels the universe is rewarding others unfairly, the bitterness that sets in can be all-consuming."}},
+      {num: 43, sideA: {type: "Emotion", title: "Trust", desc: "A leap of faith must be made. Either someone is asking to be trusted, or one may be having difficulty finding the courage to trust one's self."}, sideB: {title: "Betrayal", desc: "Trust has been misplaced. A traitor is revealed, or someone abandons the cause he or she had sworn allegiance to."}},
+      {num: 44, sideA: {type: "Destiny", title: "Injustice", desc: "Justice is thwarted. The greedy and corrupt win the day, threatening all that is good and right."}, sideB: {title: "Justice", desc: "Justice prevails. The fair and the right triumph over their enemies."}},
+      {num: 45, sideA: {type: "Emotion", title: "Fear", desc: "Terror controls one's actions, causing paralysis and blindness to reason."}, sideB: {title: "Courage", desc: "Emotional fortitude is found. Even in the face of impending doom, the will to go on is within reach."}},
+      {num: 46, sideA: {type: "Wealth", title: "Loss", desc: "Something ceases to exist. It is not just lost to the person who possessed it, it is no more."}, sideB: {title: "Creation", desc: "Something is brought into existence where before there was nothing."}},
+      {num: 47, sideA: {type: "Destiny", title: "Obliviousness", desc: "The truth is missed, refused, or ignored, no matter how dramatically it is revealed."}, sideB: {title: "Epiphany", desc: "In an overwhelming instant, the true nature of the universe and one's place in it are revealed."}},
+      {num: 48, sideA: {type: "Wealth", title: "The Gamble", desc: "Putting things held dear on the line, hoping to profit from the bet. The prize seems worth risking the high price for losing."}, sideB: {title: "Safety", desc: "Sticking to bets where the odds of winning are stacked in one's favor. Taken to an extreme, a person might never leave their house to avoid taking any risk."}},
+      {num: 49, sideA: {type: "Identity", title: "Addiction", desc: "Chronic substance abuse or emotional dependence blot out reason and dominate motivation, making someone dependent on something or someone."}, sideB: {title: "Withdrawal", desc: "The thing one is addicted to is suddenly taken away or is no longer available, causing pain and panic."}},
+      {num: 50, sideA: {type: "Will", title: "The Mentor", desc: "This person might be a professor, a professional who takes an apprentice, or even a martial arts sensei. His or her gift is helping others with growth or training in a specific skill or craft."}, sideB: {title: "The Master", desc: "Someone who has been in training for many years is finally acknowledged as a master and may be called upon to employ that skill in the service of a cause."}},
+      {num: 51, sideA: {type: "Emotion", title: "Confession", desc: "Even if the cost is great, the secret must be revealed. Either the emotional toll of keeping the secret is too high, or remaining silent will prevent the goal from being reached."}, sideB: {title: "The Secret", desc: "The consequences of the secret being revealed would be catastrophic. It must be kept at all costs."}},
+      {num: 52, sideA: {type: "Destiny", title: "Chaos", desc: "Chaos prevails. Rationality and predictability give way to random or seemingly insane events."}, sideB: {title: "Order", desc: "Order prevails. Even if things go poorly, they behave as expected."}},
+      {num: 53, sideA: {type: "Emotion", title: "Sacred", desc: "This person, object, or situation is sanctified by God, pure and holy. Supernatural powers or protection may surround it or come from it."}, sideB: {title: "Profane", desc: "Pure evil, a blight on mankind, God, and the Universe. Nothing but pain, loss, and damnation can come from this."}},
+      {num: 54, sideA: {type: "Will", title: "Madness", desc: "Clear thinking breaks down and gives way to hysteria. Can be indicative of either mental illness or damage from psychological trauma."}, sideB: {title: "Sanity", desc: "Calm hearts go hand in hand with keen minds. Clarity of thought and understanding are paramount."}},
+      {num: 55, sideA: {type: "Will", title: "Amnesia", desc: "The inability to remember. Someone may be literally struck with amnesia or just be unable to remember a single crucial fact."}, sideB: {title: "Memory", desc: "An issue turns on the ability to remember something, or the memory itself triggers an important association. Could also indicate someone regaining their memory after a serious case of amnesia."}},
+      {num: 56, sideA: {type: "Identity", title: "War", desc: "Negotiations break down. No equitable solutions can be agreed upon. Conflict escalates to violent combat."}, sideB: {title: "Peace", desc: "Conflict is resolved without violence. Differences are settled with diplomacy. Mutually satisfying agreements are reached."}},
+      {num: 57, sideA: {type: "Destiny", title: "Corruption", desc: "Power is misused, or someone is corrupted by power."}, sideB: {title: "Power", desc: "A source of enormous power can be tapped into and harnessed, though first it must be attained."}},
+      {num: 58, sideA: {type: "Destiny", title: "The Protagonist", desc: "The main character's destiny, welfare, interests, or fate are of utmost importance."}, sideB: {title: "The Antihero", desc: "The Protagonist may be someone whose goals and values are noble and good, but whose methods for achieving them are questionable."}},
+      {num: 59, sideA: {type: "Destiny", title: "Rebirth", desc: "What was lost is suddenly regained. Health returns after being sick, injured, or even dead. Could also be a metaphorical rebirth, a rekindling of purpose, or escape from damnation."}, sideB: {title: "Relapse", desc: "Forces or patterns that were thought to be left behind rise anew, stronger than ever."}},
+      {num: 60, sideA: {type: "Destiny", title: "Strength", desc: "Though the task at hand is daunting, the strength to see it through, whatever the cost, is within reach."}, sideB: {title: "Weakness", desc: "Either through physical weakness or a lack of conviction, failure is likely."}},
+      {num: 61, sideA: {type: "Wealth", title: "Desire", desc: "A fire burns inside, filling one with a deep passion to possess someone or something, even if he or she must surmount substantial obstacles to acquire it."}, sideB: {title: "Aversion", desc: "Whether through a phobia or from genuine distaste, someone is strongly repulsed by something and may go to great lengths to avoid it."}},
+      {num: 62, sideA: {type: "Will", title: "Turmoil", desc: "Nothing is still or at rest, all is drowned out in noise and chaotic action. Even if things are going well, they are progressing frenetically."}, sideB: {title: "Tranquility", desc: "The complete absence of conflict and strife. Even if things aren't good, they are at least peaceful and still. Often, this turns out to be the calm before the storm."}},
+      {num: 63, sideA: {type: "Will", title: "Nescience", desc: "When intuition and deduction both fail, one is left with no inkling of what is really going on around them."}, sideB: {title: "Intuition", desc: "Sometimes instinct is more accurate than deduction. Listening to hunches and feelings from the subconscious mind is important and more likely to pay off."}},
+      {num: 64, sideA: {type: "Will", title: "Compulsion", desc: "Regardless of the rationality, one is gripped with an irresistible impulse to do something. The motivator could also be external coercion."}, sideB: {title: "Obsession", desc: "A single thought crowds out all others. One is fixated on another person or thing to the point of mania."}},
+      {num: 65, sideA: {type: "Identity", title: "Disguise", desc: "Someone has assumed a false identity, traveling incognito, lying about his or her credentials, or concealing an unsavory past."}, sideB: {title: "Identity", desc: "Knowing who someone really is becomes of utmost importance."}},
+      {num: 66, sideA: {type: "Identity", title: "The Outsider", desc: "Some people just don't belong. Whether it's a club, profession, tribe, or culture, this person is clearly not included or welcome."}, sideB: {title: "The Outcast", desc: "Someone who had been previously admired by others is suddenly shunned and must come to terms with being cast out."}},
+      {num: 67, sideA: {type: "Destiny", title: "Victory", desc: "Glory rains down as opposition is overcome and the goal is achieved."}, sideB: {title: "Defeat", desc: "Failure to achieve the goal results in loss and despair."}},
+      {num: 68, sideA: {type: "Destiny", title: "The Angel", desc: "The highest forces in the universe stand united in support of the situation and protect all involved from harm."}, sideB: {title: "The Devil", desc: "The universe itself becomes the opponent, rising up to prevent the goal from being reached."}},
+      {num: 69, sideA: {type: "Emotion", title: "The Prodigy", desc: "The \"golden child\" is loved and admired by all. It is felt that this person can do no wrong, whether it is true or not."}, sideB: {title: "The Black Sheep", desc: "This person has always been held in suspicion or actively shunned by others for having a legendarily bad reputation, even if it isn't earned."}},
+      {num: 70, sideA: {type: "Wealth", title: "Red Tape", desc: "Someone becomes tangled in a web of bureaucracy, struggling not to be victimized by others or become mired in endless forms and procedures."}, sideB: {title: "The Bureaucrat", desc: "As someone who accepts or even embraces bureaucracy, this person could be a powerful foe or ally in the political or financial arenas."}},
+      {num: 71, sideA: {type: "Wealth", title: "The MacGuffin", desc: "The object believed to be valuable is actually worthless. It may be a forgery or misidentified. If it is the real thing, it has lost whatever qualities once made it so precious."}, sideB: {title: "The Black Bird", desc: "A legendary object of incredible value or power that many would be willing to fight, kill, or die to possess."}},
+      {num: 72, sideA: {type: "Destiny", title: "The Antagonist", desc: "This card may represent the Antagonist literally or other external forces aligned against the good of the Protagonist."}, sideB: {title: "Self Defeat", desc: "It is not external opposition that causes one to fail, it is his or her own weakness or other internal flaws."}},
+      {num: 73, sideA: {type: "Wealth", title: "Contentment", desc: "One is satisfied with the level of wealth he or she has attained. While having more might be welcome, it isn't necessary or even strongly desired."}, sideB: {title: "Greed", desc: "For some people, the word enough has no meaning. Whether it is food, wealth or pleasure, if it is available they will take as much of it as possible, whether he or she has earned it or not."}},
+      {num: 74, sideA: {type: "Destiny", title: "The Hidden", desc: "Forces are reaching out from beyond the normal realm, attempting to intervene in mortal affairs for good or ill."}, sideB: {title: "The Threshold", desc: "Someone is being drawn into other realms, beginning a voyage that largely takes place outside the normal world."}},
+      {num: 75, sideA: {type: "Identity", title: "Health", desc: "The body is strong and free from disease. Can be a generally good constitution or a return to health after having been injured or sick."}, sideB: {title: "Illness", desc: "The body falls prey to a disease or injury."}},
+      {num: 76, sideA: {type: "Identity", title: "Pain", desc: "Actions are driven purely by physical or emotional pain; either to put an end to the suffering or to strike out at the source."}, sideB: {title: "Pleasure", desc: "Whether as a goal or a reward for hard work, pleasure becomes the focus of attention."}},
+      {num: 77, sideA: {type: "Emotion", title: "The Manipulator", desc: "Some do not need a gun to get others to do their bidding. This person's weapons are flattery, lies, guilt, blackmail, or bullying."}, sideB: {title: "The Leech", desc: "An emotionally starved person who drains time and energy from others. His or her life is always a tragedy. No amount of support or assistance will ever be enough."}},
+      {num: 78, sideA: {type: "Emotion", title: "Marriage", desc: "The institution of marriage, a proposal, or entrance into a permanent relationship. There is no guarantee that it will be happy, but it will be solid and committed."}, sideB: {title: "Infidelity", desc: "One of the partners in a marriage or other permanent relationship goes astray, taking their affection and attention to another."}}
+    ];
 
     // =========================
-    // SIMPLE “ROLL” LOGIC
+    // STORY POINT DEFINITIONS
     // =========================
+    const storyPoints = [
+      "The Protagonist Before The Story",
+      "The Status Quo",
+      "What Makes The Situation Unstable",
+      "What Makes The Protagonist Resist Getting Involved",
+      "What Overcomes That Resistance",
+      "What Propels The Protagonist Into Action",
+      "The Direction The Protagonist is Pushed",
+      "The Apparent Goal"
+    ];
 
-    function randomFrom(list) {
-      const i = Math.floor(Math.random() * list.length);
-      return list[i];
+    // =========================
+    // RANDOMIZATION LOGIC
+    // =========================
+    let currentSelections = [];
+
+    function getRandomCardSide(excludeCardNums = []) {
+      const availableCards = cards.filter(c => !excludeCardNums.includes(c.num));
+      const card = availableCards[Math.floor(Math.random() * availableCards.length)];
+      const side = Math.random() < 0.5 ? 'sideA' : 'sideB';
+      const cardData = card[side];
+
+      return {
+        cardNum: card.num,
+        side: side === 'sideA' ? 'A' : 'B',
+        type: cardData.type || card.sideA.type,
+        title: cardData.title,
+        description: cardData.desc
+      };
     }
 
-    function roll(categoryKey) {
-      const list = storyOptions[categoryKey];
-      if (!list) return;
-      const text = randomFrom(list);
-      const el = document.getElementById(categoryKey);
-      if (el) el.textContent = text;
+    function rollSinglePoint(index) {
+      const usedCardNums = currentSelections
+        .map((sel, i) => i !== index ? sel.cardNum : null)
+        .filter(n => n !== null);
+
+      const newCard = getRandomCardSide(usedCardNums);
+      currentSelections[index] = newCard;
+      renderPoint(index);
     }
 
     function rollAll() {
-      roll("subject");
-      roll("statusQuo");
-      roll("spark");
-      roll("conflict");
-      roll("twist");
+      currentSelections = [];
+      const usedCardNums = [];
+
+      for (let i = 0; i < 8; i++) {
+        const card = getRandomCardSide(usedCardNums);
+        currentSelections.push(card);
+        usedCardNums.push(card.cardNum);
+      }
+
+      renderAllPoints();
     }
 
-    // Roll once on page load so it isn't blank.
-    rollAll();
+    // =========================
+    // RENDERING
+    // =========================
+    function renderPoint(index) {
+      const pointDiv = document.getElementById(`point-${index}`);
+      if (!pointDiv) return;
+
+      const card = currentSelections[index];
+      const content = pointDiv.querySelector('.point-content');
+
+      content.innerHTML = `
+        <div class="card-info">
+          <div class="card-header">
+            <div class="card-title">${card.title}</div>
+            <div class="card-meta">Card ${card.cardNum}${card.side} • ${card.type}</div>
+          </div>
+          <div class="card-description">${card.description}</div>
+        </div>
+      `;
+    }
+
+    function renderAllPoints() {
+      const container = document.getElementById('storyPoints');
+      container.innerHTML = '';
+
+      storyPoints.forEach((title, i) => {
+        const pointDiv = document.createElement('div');
+        pointDiv.className = 'point';
+        pointDiv.id = `point-${i}`;
+
+        pointDiv.innerHTML = `
+          <div class="point-header">
+            <span class="point-number">${i + 1}</span>
+            <div class="point-title">${title}</div>
+            <button class="point-button" onclick="rollSinglePoint(${i})">↻ Re-roll</button>
+          </div>
+          <div class="point-content"></div>
+        `;
+
+        container.appendChild(pointDiv);
+        renderPoint(i);
+      });
+    }
+
+    // =========================
+    // INITIALIZATION
+    // =========================
+    window.addEventListener('DOMContentLoaded', () => {
+      rollAll();
+    });
   </script>
 </body>
 </html>
